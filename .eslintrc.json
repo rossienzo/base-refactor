@@ -1,0 +1,87 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "airbnb-base",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2019,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "prettier"
+    ],
+    "rules": {
+        "linebreak-style":0,
+        "prettier/prettier": ["error",
+            {
+            "endOfLine": "auto"
+            }
+        ],
+        "import/no-unresolved": "error",
+        "import/prefer-default-export": "off",
+        "import/no-extraneous-dependencies": [
+            "off"
+        ],
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": "error",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "ts": "never"
+            }
+        ],
+        "@typescript-eslint/explicit-function-return-type": [
+            "error",
+            {
+                "allowExpressions": true
+            }
+        ],
+        "max-len": [
+            "error",
+            {
+                "code": 150,
+                "tabWidth": 4,
+                "ignoreComments": true,
+                "ignoreUrls": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true,
+                "ignoreRegExpLiterals": true
+            }
+        ]
+    },
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+                "paths": [
+                    "src"
+                ],
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        },
+        "node": {
+            "paths": [
+                "src"
+            ],
+            "extensions": [
+                ".js",
+                ".jsx",
+                ".ts",
+                ".tsx"
+            ]
+        }
+    }
+}
