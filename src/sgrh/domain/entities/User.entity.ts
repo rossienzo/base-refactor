@@ -40,7 +40,7 @@ export class User {
     @Column({ type: 'enum', enum: ResidenceDistancesEnum, default: ResidenceDistancesEnum.NEAR })
     residenceDistance: ResidenceDistancesEnum;
 
-    @Column({ name: 'num_projects' })
+    @Column({ name: 'num_projects', default: 0})
     numProjects: number;
 
     @Column({ type: 'smallint', default: 24 })
