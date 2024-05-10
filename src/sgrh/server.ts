@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import dotenv from 'dotenv';
+
 import app from './config/app';
 import AppDataSource from './config/database';
 

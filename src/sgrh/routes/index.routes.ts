@@ -1,4 +1,5 @@
 import type { Router } from 'express';
+import { createGetUsers } from '../presentation/factories/get-users-factory';
 
 export default (router: Router): void => {
     const path = '/';
@@ -19,7 +20,6 @@ export default (router: Router): void => {
      *               items:
      *                 $ref: '#/components/schemas/User'
      */
-    router.get(path, (req, res) => {
-        res.send('Hello, World!');
-    });
+    router.get(path, async (req, res) => createGetUsers().handle(req, res));
+    // .handle só funciona caso wrapped numa função assíncrona. Caso contrário, a dependência é 'undefined'.
 };

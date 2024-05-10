@@ -1,5 +1,0 @@
-1- Services chamam repositórios e thirdparty
-2- Repositories acessam o banco de dados por meio do typerom
-3- Controllers chamam os services e trabalham com o controle das requisições e respostas
-4- Os services trabalham com a integração para executar uma funcionalidade
-5- Factories vão ser chamadas em route e vão retornar uma instancia do controlador com as dependencias injetadas

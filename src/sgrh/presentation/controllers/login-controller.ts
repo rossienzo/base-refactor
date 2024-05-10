@@ -1,10 +1,10 @@
-import { Controller, Request, Response } from '../helpers/controller';
+import { Request, Response } from 'express';
 
-export class LoginController implements Controller{
-    async handle(request: Request): Promise<Response> {
-        return {
-            statusCode: 400,
-            body: new Error('Email or password is incorrect')
-        }
+import { Controller } from '../helpers/controller';
+
+export class LoginController implements Controller {
+    // eslint-disable-next-line class-methods-use-this
+    async handle(request: Request, response: Response): Promise<any> {
+        response.status(400).send({ error: new Error('Email or password is incorrect') });
     }
 }

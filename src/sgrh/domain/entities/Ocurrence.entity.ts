@@ -1,22 +1,24 @@
-import { User } from "./User.entity"
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, CreateDateColumn } from 'typeorm';
 
-import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
-    JoinColumn,
-    OneToOne,
-    CreateDateColumn,
-    UpdateDateColumn
-} from 'typeorm';
+import { User } from './User.entity';
 
 @Entity('ocurrences')
-
 export class Ocurrence {
-    id: string
-    incidentDate: Date
-    message: string
-    meterValue: number
-    userCreated: User
-    createdAt: Date
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
+
+    @Column()
+    incidentDate: Date;
+
+    @Column({ type: 'varchar' })
+    message: string;
+
+    @Column()
+    meterValue: number;
+
+    @OneToOne(() => User)
+    userCreated: User;
+
+    @CreateDateColumn()
+    createdAt: Date;
 }

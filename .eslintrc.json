@@ -56,7 +56,10 @@
                 "ignoreTemplateLiterals": true,
                 "ignoreRegExpLiterals": true
             }
-        ]
+        ],
+        "no-console": "off",
+        "no-useless-constructor": "off",
+        "no-empty-function": "off"
     },
     "settings": {
         "import/resolver": {

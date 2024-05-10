@@ -1,6 +1,7 @@
 import { Repository } from 'typeorm';
 import { User } from '../../domain/entities/User.entity';
 import { ResidenceDistancesEnum } from '../../domain/enum/residenceDistances.enum'; // Importar o enum necessário
+import AppDataSource from '../../config/database';
 
 type CreateUserDto = {
     name: string;
@@ -11,7 +12,13 @@ type CreateUserDto = {
     residenceDistance: ResidenceDistancesEnum; // Adicionar residenceDistance ao tipo CreateUserDto
 };
 
+type VisibleUser = Omit<User, 'password'>;
+
 export class UserRepository extends Repository<User> {
+    constructor() {
+        super(User, AppDataSource.manager);
+    }
+
     async createUser(createUserDto: CreateUserDto): Promise<User> {
         const { name, email, cpf, residenceDistance, phone, registration } = createUserDto; // Adicionar residenceDistance ao destructuring
 
@@ -33,5 +40,10 @@ export class UserRepository extends Repository<User> {
         await this.save(user);
 
         return user;
+    }
+
+    async getAllUsers(): Promise<VisibleUser[]> {
+        const res = await this.find({});
+        return res;
     }
 }
